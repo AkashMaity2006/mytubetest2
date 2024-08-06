@@ -134,19 +134,13 @@ function setHTMLtagByCheckingAccountDetails(){
     }
     else if(account_status == "registered"){
         document.getElementById("mainMyChanelPage").style.display = "none";
-        document.getElementById("mainProfilePage").style.display = "none";
         document.getElementById("register1").style.display = "none";
-        document.getElementById("register2").style.display = "none";
         document.getElementById("login1").style.display = "flex";
-        document.getElementById("login2").style.display = "flex";
     }
     else if(account_status == undefined){
         document.getElementById("mainMyChanelPage").style.display = "none";
-        document.getElementById("mainProfilePage").style.display = "none";
         document.getElementById("register1").style.display = "flex";
-        document.getElementById("register2").style.display = "flex";
         document.getElementById("login1").style.display = "none";
-        document.getElementById("login2").style.display = "none";
     }
 }
 setHTMLtagByCheckingAccountDetails()
