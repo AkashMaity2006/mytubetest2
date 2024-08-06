@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MYTUBE</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+        <link rel="shortcut icon" href="./WIN_20240421_11_30_13_Pro.jpg" />
+        <link rel = "stylesheet" type = "text/css" href = "CSS/style.css"/>
+    </head>
+    <body>
+        
+        <div id = "containFeedDiv1" class = "containClass" style = "display: block;"></div>
+        <div id = "subsciptionPage" class = "containClass">
+            <div id = "subscibePageChaneleIconDiv" style = "position:absolute;top:0px;left:0px;width:100%;height:65px;overflow-x: scroll;"></div> 
+            <div id = "subscribePageNavigation" style = "position:absolute;top:65px;left:0px;width:100%;height:30px;background-color: rgb(39, 28, 39);display: flex;align-items: center;justify-content: center;gap:30%;">
+                <span class = "subscribePageNavigationSubClass" style = "color:rgb(158, 32, 53);">INFO</span>
+                <span class = "subscribePageNavigationSubClass">VIDEOS</span>
+            </div>
+            <div id = "subscribeSelectedChanelInfoDivId" style = "position:absolute;top:95px;left:0px;width:100%;height:calc(100vh - 145px);display: block;overflow-y: scroll;" ></div>
+            <div id = "subscribePageVideosDivId" style = "position:absolute;top:95px;left:0px;width:100%;height:calc(100vh - 145px);display:none;overflow-y: scroll;" ></div>
+        </div>
+        <div id = "libraryPage" class = "containClass">
+            <div id = "libraryPageNavigation" style = "position:absolute;top:0px;left:0px;width:100%;height:30px;background-color: rgb(39, 28, 39);display: flex;align-items: center;justify-content: center;gap:30%;">
+                <span class = "libraryPageNavigationSubClass" style = "color:rgb(158, 32, 53);">WATCHED</span>
+                <span class = "libraryPageNavigationSubClass">LIKED</span>
+            </div>
+            <div id = "libraryPageWatchedVideosDivId" style = "position:absolute;top:30px;left:0px;width:100%;height:calc(100vh - 80px);display: block;overflow-y: scroll;" ></div>
+            <div id = "libraryPageLikedVideosDivId" style = "position:absolute;top:30px;left:0px;width:100%;height:calc(100vh - 80px);display: none;overflow-y: scroll;" ></div>
+        </div>
+        <div id = "settingPage" class = "containClass">settingpage</div>
+
+        <div id = "mychanelePage" class = "containClass">
+            <div id = "register1" class = "registerloginPageClass">
+                REGISTER FORM
+                <form id = "register1Form">
+                    <span><label for = "username1">username  : </label><input type = "text" name = "username" id = "username1"/></span>
+                    <span><label for = "fullname1">fullname  : </label><input type = "text" name = "fullname" id = "fullname1"/></span>
+                    <span><label for = "passward1">passward  : </label><input type = "password" name = "password" id = "passward1"/></span>
+                    
+                </form>
+                <button onclick = "formDataPostFunction('register1Form')">submit</button>
+            </div>
+            <div id = "login1" class = "registerloginPageClass">
+                LOGIN FORM
+                <form id = "login1Form">
+                    <span><label for = "username3">username  : </label><input type = "text" name = "username" id = "username3"/></span>
+                    <span><label for = "passward3">passward  : </label><input type = "password" name = "password" id = "passward3"/></span>
+                    
+                </form> 
+                <button onclick = "formDataPostFunction('login1Form')">submit</button>
+            </div>
+            <div id = "mainMyChanelPage"> 
+                <div id = "othersMychanelInformationId">
+                    <div id = "othersMychanelInformationNavigantionId">
+                        <span class = "othersMychanelInformationNavigantionSubClass" style = "color: rgb(158, 32, 53);">VIDEOS</span>
+                        
+                        <span class = "othersMychanelInformationNavigantionSubClass">UPLOAD</span>
+                        <span class = "othersMychanelInformationNavigantionSubClass">PROFILE</span>
+                    </div>
+                    <div id = "othersMychanelInformationContainId">
+                        <div id = "allMyVideoListOfMyChanelDivId" class = "othersMychanelInformationContainIdSubClass" style = "display:block;">
+                           
+                        </div>
+
+                        
+
+                        <div id = "uploadVideoSection" class = "othersMychanelInformationContainIdSubClass"  style = "align-items: center;flex-direction: column;gap:5vh;overflow-x: hidden;">
+                          
+                                <form id = "uploadVideoWithDetailsFormId" style = "display:flex;align-items: center;flex-direction: column;gap:7vh;">
+                                    <div id = "videoThumbnailAddingAreaDivId" style = "position:relative;width:270px;height:240px;display:flex;align-items: center;flex-direction: column;gap:7vh;margin-top: 20px;">
+                                        <div id = "videoThumbnailAddingAreaDivP1Id" style = "position:relative;width:270px;height:150px;" >
+                                            <img id = "frontandVideoSowingImgId" crossorigin="anonymous" style = "position:absolute;width:100%;height:150px;background-color: blanchedalmond;">
+                                            <div id = "notChoosenVideoDivId" style = "position:absolute;width:100%;height:150px;background-color: rgba(255, 235, 205, 0.432);display:flex;align-items: center;justify-content: center;color:black;">NO VIDEO CHOSSEN</div>
+                                            <div id = "notChoosenThumbnailDivId" style = "display:none;position:absolute;width:100%;height:150px;background-color: rgba(255, 235, 205, 0.432);align-items: center;justify-content: center;color:black;">NO THUMBNAIL CHOOSE</div>
+                                        </div>
+                                        
+                                        <div id = "videoThumbnailAddingAreaDivP2Id" style = "position:relative;width:270px;display:flex;align-items: center;gap:4vh;justify-content: center;flex-direction: column;gap:2vh;">
+                                            <div style = "position:relative;width:90px;height:30px;">
+                                                <label id = "videoFileIdLabel" for = "videoFileId" style = "padding: 5px;white-space: nowrap;background-color: rgba(73, 84, 95, 0.747);">ADD VIDEO</label>
+                                                <input type = "file" name = "videoFile" id = "videoFileId" style = "visibility: hidden;" onchange="formUploadVideoInputFun('videoFileId')"/>
+                                            </div>
+                                            <div  style = "position:relative;width:120px;height:30px;" >
+                                                <label id = "thumbnailFileiIdLabel" for = "thumbnailFileId" style = "padding:5px;white-space: nowrap;background-color: rgba(83, 97, 110, 0.726)">ADD THUMBNAIL</label>
+                                                <input type = "file"  name = "thumbnailFile" id = "thumbnailFileId" style = "visibility: hidden;" onchange="formUploadVideoInputFun('thumbnailFileId')"/>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div style = "display:flex;align-items: center;flex-direction: column;gap:4px;">
+                                        <span >title</span>
+                                        <input id = "titleId" class = "titleDescriptionlass" type = "text" />
+                                      
+                                    </div>
+                                    
+                                    <div style = "display:flex;align-items: center;flex-direction: column;gap:4px;">
+                                        <span>description</span>
+                                        <input id = "descriptionId" class = "titleDescriptionlass" type = "text" />
+                                            
+                                        
+                                    </div>
+
+                                    <div style = "display:flex;align-items: center;justify-content:center;gap:4px;" onclick = "openVideoGenereBox()">
+                                        <span style = "padding:5px;border: 1px solid white;">GENERE</span>
+                                        <p id = "choosenGenereForVideoPId" style = "min-width: 135px;height:25px;border:1px solid blue;padding:5px;display: flex;align-items: center;justify-content: center;" ></p>
+                                    </div>
+
+                                    <div id = "videoGenereBoxId" style = "position:absolute;height:300px;background-color: rgba(19, 18, 18, 0.781);display:none;align-items: center;gap:4px;flex-direction: column;overflow: scroll;">
+                                        <span style = "margin-top: 20px;">MUSIC</span>
+                                        <span>EDUCATION</span>
+                                        <span>MOVIE</span>
+                                        <span>RELLS</span>
+                                        <span>SPORTS</span>
+                                        <span>ANIMATION</span>
+                                        <span>VLOG</span>
+                                        <span>COMEDY</span>
+                                        <span>NONE</span>
+                                    </div>
+                                </form>
+
+                                <div id = "uploadVideoPogressingDivId" style="display:none;z-index: 3;position: absolute;top:0px;left:0px;width:100%;height:calc(100vh - 40px);background-color: rgb(7, 7, 7);align-items: center;justify-content: center;flex-direction: column;gap:5vh;">
+                                    
+                                    <div id = "uploadVideoPogressingInformationId" style = "position:relative;width:250px;height:150px;background-color: azure;">
+                                        <img src = "" id = "uploadVideoPogressingThumbnailId" style = "position:absolute;top:0px;left:0px;width:250px;height:150px;"/>
+                                        <div id = "pogressingDivMeterId" style = "position:absolute;top:0px;left:0px;width:0%;height:150px;background-color:rgba(42, 42, 155, 0.534);" ></div>
+                                        <div id = "pogressingDivMeter2Id" style = "position:absolute;top:0px;left:0px;width:0%;height:150px;background-color:rgba(155, 42, 51, 0.534);" ></div>
+                                        <div id = "pogressingDivMeterStatusId" style = "display:flex;position:absolute;top:0px;left:0px;width:100%;height:150px;align-items: center;justify-content: center;font-size: 40px;color:black;">0%</div>
+
+                                    </div>
+
+                                    <div style = "margin-top: 15px;">WAIT UNTILL UPLOADING DONE</div>
+                                </div>
+            
+                                <button onclick = "uploadVideoWithDetailsCLoudinaryANDSErver()" style = "margin-bottom: 10px;">UPLOAD YOUR VIDEO</button>
+                            
+                        </div>
+                    
+                        <div id = "myChanelInformationDivIdMobile" class = "othersMychanelInformationContainIdSubClass" style = "align-items: center;flex-direction: column;gap:7vh;">
+                            <div id = "profileImageId">
+                                <div style = "position:absolute;top:0px;left:0px;width:100%;height:150px;border: 1px solid black;border-radius: 50%;display:flex;justify-content: center;align-items: center;color:black;">ADD AVATAR</div>
+                                <img id = "profileImageIdInput1" crossorigin="anonymous" />
+                                
+                                <form id = "addProfileAvatarForm" action = "https://998ee7f7-cfcc-4190-aa81-30a4f6f75f62-00-2ms17jin26ghp.pike.replit.dev/user/addProfileAvatar" method = "post" enctype="multipart/form-data" target="iframe1">
+                                <input id = "profileImageIdInput2" type = "file" name = "profileImage" placeholder="" onchange="readURL(this);"/>
+                                <input id = "profileImageUserName" type = "text" name = "username" style = "display: none;"/>
+                                <input id = "profileImagePassward" type = "text" name = "passward" style = "display: none;"/>
+                                </form>
+                            </div>
+
+                            <div id = "accountProfileDetails">
+                                <p style = "margin-bottom: 20px; background-color: rgba(240, 255, 255, 0.507);color:black;"><span style = "border:1px solid black;padding:1vh;">USERNAME</span> <span style = "padding:0px 1vh 0px 1vh;">Akash Maity</span></p>
+                                <p style = "margin-bottom: 20px;background-color: rgba(240, 255, 255, 0.507);color:black;"><span style = "border:1px solid black;padding:1vh;white-space: nowrap;">CHANEL</span><span style = "padding:0px 1vh 0px 1vh;white-space: nowrap;overflow:scroll;font-size: 15px;">Akash Maity</span></p>
+                            </div>
+                            <div id = "chaneleNameChangeBoxId" style = "position:absolute;height:200px;background-color: rgba(19, 18, 18, 0.849);display:none;align-items: center;justify-content:center;gap:4px;flex-direction: column;">
+                                <form id = "updateFullNameFormId">
+                                    <input id = "updateFullNameId" type = "text" name = "updateFullName" placeholder="enter your chanele name"/>
+                                </form>
+                                
+                                <button  onclick = "updateToServerFullName()">CHANGE</button>
+                                <button onclick = "(()=>{document.getElementById('chaneleNameChangeBoxId').style.display = 'none'})()">CLOSE</button>
+                            </div>
+                            <button style = "padding:1vh;border-radius:10%; " onclick = "(()=>{document.getElementById('chaneleNameChangeBoxId').style.display = 'flex'})()">CHANGE CHANEL NAME</button>
+
+                            <div><button style = "padding:1vh;border-radius:10%; margin-right:20px;" onclick = "formDataPostFunction('logoutAccount')">log out</button><button style = "padding:1vh;border-radius:10%;" onclick = "formDataPostFunction('deleteAccount')">delete account</button></div>
+
+                            
+                            
+                        </div>
+
+                        </div>
+
+                </div>
+            </div>
+               
+
+                    
+         
+        </div>
+        <div id = "searchPage" class = "containClass">5</div>
+        
+        <div id = "videoRunningPage" class = "containClass">
+            <div id = "mainVideoRunningDiv">
+                <video src =  "" autoplay controls id = "videoBar"  poster= "" ></video>
+            </div>
+            <div id = "mainVideoInformantioDiv"></div>
+            <div id = "otherSectionDiv"></div>
+        </div>
+        <div id = "noInternetStatusPage" style = "position: absolute;top:50px;left:0px;width:100%;display:flex;align-items: center;justify-content: center;height:calc(100vh - 50px);background-color: rgba(0, 0, 0, 0.589);color:white;">NO INTERNET CONNECTION</div> 
+        <div id = "massageAlertBoxId" style = "display:none;position: absolute;top:50px;left:0px;width:100%;display:none;align-items: center;justify-content: center;height:calc(100vh - 50px);background-color: rgba(0, 0, 0, 0.589);color:rgb(150, 75, 75);font-size: 25px;"></div>
+        <div id = "mainDiv">
+            <div id = "headerDiv">
+                <div id = "menuBut" onclick = "meunButFuction()">
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div id = "headerHeadingDiv" style = "color:white;"><span style = "color:green;">MY</span><span>TU</span><span style = "color:orange;">BE</span></div>
+                <div id = "headerSearchBoxDiv">
+                    <input type = "text"/>
+                    <div id = "headerSearchBoxDivSearchBut" style = "position: absolute;left:72%;top:8px;font-size: 15px;" >SEARCH</div>
+                </div>
+                <div id = "headerSearchDiv" onclick = "searchButToPage()">SEARCH</div>
+            </div>
+            
+            <div id = "menuBoxDiv" >
+                <div>HOME</div>
+                <div>MUSIC</div>
+                <div>EDUCATION</div>
+                <div>SPORTS</div>
+                <div>RELLS</div>
+                <div>MOVIE</div>
+                <div>ANIMATION</div>
+                <div>VLOG</div>
+                <div>COMEDY</div>
+                <div>SUBSCRIPTION</div>
+                <div>LIBRARY</div>
+                <div>MYCHANEL</div>
+                <diV>SETTING</diV>
+            </div>
+            <div id = "menuBoxBackSupportBox" style = "display:none;height:calc(100vh - 50px);position:absolute;right:0px;top:50px;background-color: rgba(0, 0, 0, 0.274);" onclick = "(()=>{ menuBox = 'off';document.getElementById('menuBoxDiv').style.display = 'none';document.getElementById('menuBoxBackSupportBox').style.display = 'none';})()"></div>
+        </div>
+        <div id = "unwantedResponse">
+            <iframe name = "iframe1"></iframe>
+        </div>
+
+        
+        
+        <script src = "JS/index.js"></script>
+    </body>
+</html>
